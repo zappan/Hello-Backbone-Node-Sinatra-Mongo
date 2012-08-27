@@ -1,8 +1,15 @@
+# DEPRECATED!
+
+_This project is now **deprecated**. Revisited version using full Javascript 
+stack is available at <https://github.com/zappan/fulljs>_
+
+-----
+
 # Application base prototype for a Backbone.js app, Node.js/Sinatra backend and MongoDB
 
 This is a base prototype demo for setting up an infrastructure for a Backbone.js application, with a Node.js or Sinatra backend API talking to MongoDB
 
-There's a live preview available, running on Node.js backend, at: http://fulljs.nodester.com/
+There's a live preview available, running on Node.js backend, at: <http://fulljs.nodester.com/>
 
 
 ## USAGE
