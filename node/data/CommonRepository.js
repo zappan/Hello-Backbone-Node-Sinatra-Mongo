@@ -5,7 +5,7 @@ CommonRepository = function() {};
 // findAll
 CommonRepository.prototype.findAll = function(callback) {
   if (!this.dbCollection || !this.dbCollection.find)
-    return callback("Fatal error! Missing repository's dbCollection");
+    return callback(new Error("Fatal error! Missing repository's dbCollection"));
   
   this.dbCollection.find({}, function(err, models) {
     if (err) return callback(err);
@@ -16,7 +16,7 @@ CommonRepository.prototype.findAll = function(callback) {
 // findById
 CommonRepository.prototype.findById = function(id, callback) {
   if (!this.dbCollection || !this.dbCollection.findOne)
-    return callback("Fatal error! Missing repository's dbCollection");
+    return callback(new Error("Fatal error! Missing repository's dbCollection"));
   
   this.dbCollection.findOne({ _id : id }, function(err, models) {
     if (err) return callback(err);
@@ -27,7 +27,7 @@ CommonRepository.prototype.findById = function(id, callback) {
 // save
 CommonRepository.prototype.save = function(model, callback) {
   if (!this.dbCollection || !this.dbCollection.save)
-    return callback("Fatal error! Missing repository's dbCollection");
+    return callback(new Error("Fatal error! Missing repository's dbCollection"));
   
   this.dbCollection.insert(model, function(err, result) {
     if (err) return callback(err);
@@ -38,7 +38,7 @@ CommonRepository.prototype.save = function(model, callback) {
 // update
 CommonRepository.prototype.update = function(model, callback) {
   if (!this.dbCollection || !this.dbCollection.update)
-    return callback("Fatal error! Missing repository's dbCollection");
+    return callback(new Error("Fatal error! Missing repository's dbCollection"));
   
   var modelId = ObjectId(model._id);
   delete model._id;
@@ -52,7 +52,7 @@ CommonRepository.prototype.update = function(model, callback) {
 // delete
 CommonRepository.prototype.delete = function(modelId, callback) {
   if (!this.dbCollection || !this.dbCollection.remove)
-    return callback("Fatal error! Missing repository's dbCollection");
+    return callback(new Error("Fatal error! Missing repository's dbCollection"));
   
   modelId = ObjectId(modelId);
   this.dbCollection.remove({ "_id" : modelId }, function(err, result) {
